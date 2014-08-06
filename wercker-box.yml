@@ -45,6 +45,7 @@ packages:
   - libjpeg-dev
   - libpng-dev
   - chef@11.12.4
+  - php54-apc
 script: |
   sudo apt-get update
   sudo apt-get install curl -y
