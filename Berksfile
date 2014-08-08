@@ -1,7 +1,6 @@
 site :opscode
 
-cookbook 'wercker-essential', github: "augier/wercker-essential-cookbook", ref: "baec21129d07ebe715a3d73c9c3bb3fed1b022bf"
+cookbook 'wercker-essential', github: "domudall/wercker-essential-cookbook", ref: "6925d80bba9071e53c1f0c6558837a345dd109cb"
 cookbook 'apt', '1.8.2'
 cookbook 'python'
 cookbook 'mysql'
-cookbook 'postgresql'
