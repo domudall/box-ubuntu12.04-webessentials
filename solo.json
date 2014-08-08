@@ -6,7 +6,6 @@
     "recipe[apt]",
     "recipe[wercker-essential]",
     "recipe[python::default]",
-    "recipe[mysql::client]",
-    "recipe[postgresql::client]"
+    "recipe[mysql::client]"
   ]
 }
