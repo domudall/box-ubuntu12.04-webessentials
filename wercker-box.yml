@@ -47,7 +47,7 @@ packages:
   - chef@11.12.4
 script: |
   sudo apt-get update
-  sudo apt-get install curl -y
+  sudo apt-get install curl -y python-software-properties
   curl -L https://www.opscode.com/chef/install.sh | sudo bash
 
   sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
@@ -62,14 +62,8 @@ script: |
   sudo add-apt-repository ppa:chris-lea/node.js -y
 
   sudo apt-get update
-  sudo apt-get install nodejs postgresql-client-9.3 libjpeg-dev libpng-dev checkinstall -y
-  export DATA=`node -v`
-  if [ ! $DATA = "v0.10.28" ] ; then error "Node v0.10.26 expected, got: $DATA" ; fi
+  sudo apt-get install libjpeg-dev libpng-dev checkinstall build-essential checkinstall
 
-  npm -v
-
-  sudo apt-get update
-  sudo apt-get install wget build-essential checkinstall
   # download/build optipng
   cd $HOME
   wget http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.5/optipng-0.7.5.tar.gz
@@ -88,9 +82,3 @@ script: |
   sudo chown ubuntu:ubuntu $HOME/tmp
   chmod 755 $HOME/tmp
 
-  cd $HOME
-  wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
-  mkdir phantomjs
-  tar -C phantomjs --strip-components=1 -xf phantomjs-1.9.7-linux-x86_64.tar.bz2
-  echo 'export PATH="$HOME/phantomjs/bin:$PATH"' >> ~/.bash_profile
-  phantomjs/bin/phantomjs -v
