@@ -66,7 +66,8 @@ script: |
   
   cd $HOME
   wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.3.deb
-  sudo dpkg -i elasticsearch-1.0.3.deb -y
+  sudo dpkg -i elasticsearch-1.0.3.deb
+  sudo /etc/init.d/elasticsearch start
   rm elasticsearch-1.0.3.deb
 
   # download/build optipng
